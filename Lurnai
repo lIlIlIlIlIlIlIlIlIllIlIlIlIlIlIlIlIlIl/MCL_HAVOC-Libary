@@ -1,7 +1,7 @@
-local VLib = {RainbowColorValue = 0, HueSelectionPosition = 0}
+local Lurnai = {RainbowColorValue = 0, HueSelectionPosition = 0}
 function zigzag(X)
 	return math.acos(math.cos(X * math.pi)) / math.pi
-end
+endLurnai
 counter = 0
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -20,15 +20,15 @@ coroutine.wrap(
 coroutine.wrap(
 	function()
 		while wait() do
-			VLib.RainbowColorValue = VLib.RainbowColorValue + 1 / 255
-			VLib.HueSelectionPosition = VLib.HueSelectionPosition + 1
+			Lurnai.RainbowColorValue = Lurnai.RainbowColorValue + 1 / 255
+			Lurnai.HueSelectionPosition = Lurnai.HueSelectionPosition + 1
 
-			if VLib.RainbowColorValue >= 1 then
-				VLib.RainbowColorValue = 0
+			if Lurnai.RainbowColorValue >= 1 then
+				Lurnai.RainbowColorValue = 0
 			end
 
-			if VLib.HueSelectionPosition == 80 then
-				VLib.HueSelectionPosition = 0
+			if Lurnai.HueSelectionPosition == 80 then
+				Lurnai.HueSelectionPosition = 0
 			end
 		end
 	end
@@ -111,7 +111,7 @@ UserInputService.InputBegan:Connect(
 	end
 )
 
-function VLib:Window(textgame)
+function Lurnai:Window(textgame)
 	local FirstTab = false
 	local MainFrame = Instance.new("Frame")
 	local MainCorner = Instance.new("UICorner")
@@ -1236,11 +1236,11 @@ function VLib:Window(textgame)
 						OldHueSelectionPosition = HueSelection.Position
 
 						while RainbowColorPicker do
-							BoxColor.BackgroundColor3 = Color3.fromHSV(VLib.RainbowColorValue, 1, 1)
-							Color.BackgroundColor3 = Color3.fromHSV(VLib.RainbowColorValue, 1, 1)
+							BoxColor.BackgroundColor3 = Color3.fromHSV(Lurnai.RainbowColorValue, 1, 1)
+							Color.BackgroundColor3 = Color3.fromHSV(Lurnai.RainbowColorValue, 1, 1)
 
 							ColorSelection.Position = UDim2.new(1, 0, 0, 0)
-							HueSelection.Position = UDim2.new(0.48, 0, 0, VLib.HueSelectionPosition)
+							HueSelection.Position = UDim2.new(0.48, 0, 0, Lurnai.HueSelectionPosition)
 
 							pcall(callback, BoxColor.BackgroundColor3)
 							wait()
